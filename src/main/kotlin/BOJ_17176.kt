@@ -1,0 +1,22 @@
+/**
+ * @author Jaeguk Cho
+ */
+fun main() {
+    val cnt = IntArray(53)
+    readLine()
+    readLine()!!.split(' ').forEach { cnt[it.toInt()]++ }
+    readLine()!!.toCharArray().forEach {
+        cnt[when (it) {
+            ' ' -> 0
+            it.uppercaseChar() -> it - 'A' + 1
+            else -> it - 'a' + 27
+        }]--
+    }
+    for (i in cnt) {
+        if (i != 0) {
+            println("n")
+            return
+        }
+    }
+    println("y")
+}
