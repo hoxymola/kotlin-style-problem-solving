@@ -5,7 +5,10 @@ import java.text.DecimalFormat
  */
 
 fun main() {
-    val arr = List(readLine()!!.toInt()) { readLine()!!.toDouble() }.sorted()
-    for (i in 0..6)
-        println(DecimalFormat(".000").format(arr[i]))
+    val topSeven = Array(7) { 101.0 }
+    repeat(readLine()!!.toInt()) {
+        topSeven.sort()
+        topSeven[6] = topSeven[6].coerceAtMost(readLine()!!.toDouble())
+    }
+    topSeven.sorted().forEach { println(DecimalFormat("0.000").format(it)) }
 }
