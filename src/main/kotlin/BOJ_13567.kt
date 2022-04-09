@@ -40,11 +40,11 @@ data class Robot(
 }
 
 fun main() {
-    val (m, n) = readLine()!!.split(' ').map { it.toInt() }
+    val (m, n) = readln().split(' ').map { it.toInt() }
     val robot = Robot(m)
 
     repeat(n) {
-        readLine()!!.split(' ')
+        readln().split(' ')
             .also {
                 try {
                     robot.move(it[0], it[1].toInt())

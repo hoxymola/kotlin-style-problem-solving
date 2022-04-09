@@ -3,10 +3,10 @@
  */
 
 fun main() {
-    readLine()
+    readln()
     var ans = 0L
     var sum = 0L
-    readLine()!!.trim().split(' ').map { it.toLong() }.forEach {
+    readln().trim().split(' ').map { it.toLong() }.forEach {
         ans += it * sum
         sum += it
     }

@@ -7,12 +7,12 @@ data class HomeWork(
 )
 
 fun main() {
-    val n = readLine()!!.toInt()
+    val n = readln().toInt()
     var finalScore = 0
     val thingsToDo = mutableListOf<HomeWork>()
 
     repeat(n) {
-        readLine()!!.toHomeWork()?.run { thingsToDo.add(this) }
+        readln().toHomeWork()?.run { thingsToDo.add(this) }
 
         if (thingsToDo.size > 0) {
             val rightNow = thingsToDo[thingsToDo.size - 1]
