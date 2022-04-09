@@ -5,8 +5,8 @@ import kotlin.math.roundToInt
  */
 
 fun main() {
-    val n = readLine()!!.toInt()
-    val arr = List(n) { readLine()!!.toInt() }
+    val n = readln().toInt()
+    val arr = List(n) { readln().toInt() }
 
     println((arr.sum().toDouble() / n).roundToInt())
     println(arr.sorted()[n / 2])
