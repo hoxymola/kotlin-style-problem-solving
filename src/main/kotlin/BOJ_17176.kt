@@ -1,11 +1,12 @@
 /**
  * @author Jaeguk Cho
  */
+
 fun main() {
     val cnt = IntArray(53)
-    readLine()
-    readLine()!!.split(' ').forEach { cnt[it.toInt()]++ }
-    readLine()!!.toCharArray().forEach {
+    readln()
+    readln().split(' ').forEach { cnt[it.toInt()]++ }
+    readln().toCharArray().forEach {
         cnt[when (it) {
             ' ' -> 0
             it.uppercaseChar() -> it - 'A' + 1
