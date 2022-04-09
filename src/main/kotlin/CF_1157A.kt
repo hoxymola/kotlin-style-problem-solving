@@ -3,7 +3,7 @@
  */
 
 fun main() {
-    val reached = hashSetOf<Int>()
+    val reached = HashSet<Int>()
     var n = readln().toInt()
     while (reached.add(n)) n = n.next()
     println(reached.size)
