@@ -19,4 +19,3 @@ fun main() {
     )
     println(arr.maxOrNull()!! - arr.minOrNull()!!)
 }
-
