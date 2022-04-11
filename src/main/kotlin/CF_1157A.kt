@@ -10,4 +10,3 @@ fun main() {
 }
 
 fun Int.next() = (this + 1).toString().dropLastWhile { it == '0' }.toInt()
-
