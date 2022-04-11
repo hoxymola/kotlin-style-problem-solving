@@ -8,4 +8,3 @@ fun main() {
     fun a(n: Long): Long = if (n <= 0) 1 else cache.getOrPut(n) { a(n / p - x) + a(n / q - y) }
     println(a(n))
 }
-
