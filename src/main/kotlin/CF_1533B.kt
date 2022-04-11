@@ -10,3 +10,4 @@ fun main() = repeat(readLine()!!.toInt()) {
             ?.let { "YES" } ?: "NO"
     )
 }
+
