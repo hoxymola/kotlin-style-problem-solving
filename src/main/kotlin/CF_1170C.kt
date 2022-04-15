@@ -2,9 +2,9 @@
  * @author Jaeguk Cho
  */
 
-fun main() = repeat(readLine()!!.toInt()) {
+fun main() = repeat(readln().toInt()) {
     println(
-        when ((readLine()!! matches readLine()!!.replace("+", """(\+|--)""").toRegex())) {
+        when ((readln() matches readln().replace("+", """(\+|--)""").toRegex())) {
             true -> "YES"
             false -> "NO"
         }
