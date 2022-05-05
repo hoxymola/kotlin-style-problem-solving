@@ -5,7 +5,7 @@ import adventOfCode.readLines
  */
 
 fun main() = println(
-    readLines("2020_2").count {
+    readLines("2020_02").count {
         val (first, last) = it.substringBefore(' ').split('-').map { it.toInt() - 1 }
         val char = it.substringAfter(' ')[0]
         with(it.substringAfterLast(' ')) {

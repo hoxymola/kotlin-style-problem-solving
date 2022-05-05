@@ -5,7 +5,7 @@ import adventOfCode.readLines
  */
 
 fun main() = println(
-    readLines("2020_3").mapIndexed { i, v ->
+    readLines("2020_03").mapIndexed { i, v ->
         v[i * 3 % v.length] == '#'
     }.count { it }
 )
