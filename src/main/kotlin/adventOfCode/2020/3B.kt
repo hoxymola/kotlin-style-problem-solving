@@ -1,4 +1,4 @@
-import java.io.File
+import adventOfCode.readLines
 
 /**
  * @author Jaeguk Cho
@@ -10,7 +10,7 @@ fun List<String>.count(a: Int, b: Int, c: Int): Long =
     }.count { it }.toLong()
 
 fun main() = println(
-    with(File("src/main/kotlin/input").readLines()) {
+    with(readLines("2020_3")) {
         listOf(
             count(1, 1, 1),
             count(1, 3, 1),
