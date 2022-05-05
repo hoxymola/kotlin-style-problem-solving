@@ -3,7 +3,7 @@
  */
 
 fun main() = repeat(readLine()!!.toInt()) {
-    val (n, k1, k2) = readLine()!!.split(' ').map { it.toInt() }
+    val (_, k1, k2) = readLine()!!.split(' ').map { it.toInt() }
     var ans = 0
     var prev = 0
     readLine()!!.forEach {
