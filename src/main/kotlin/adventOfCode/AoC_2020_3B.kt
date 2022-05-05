@@ -10,7 +10,7 @@ fun List<String>.count(a: Int, b: Int, c: Int): Long =
     }.count { it }.toLong()
 
 fun main() = println(
-    with(readLines("2020_3")) {
+    with(readLines("2020_03")) {
         listOf(
             count(1, 1, 1),
             count(1, 3, 1),
