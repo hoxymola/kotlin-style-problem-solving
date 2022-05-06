@@ -5,9 +5,9 @@ package adventOfCode
  */
 
 fun main() = println(
-    readLines("2015_05").count { list ->
-        (list.count { it in "aeiou" } >= 3)
-            && ('a'..'z').any { it.toString() + it in list }
-            && listOf("ab", "cd", "pq", "xy").none { it in list }
+    readLines("2015_05").count { line ->
+        (line.count { it in "aeiou" } >= 3)
+            && ('a'..'z').any { it.toString() + it in line }
+            && listOf("ab", "cd", "pq", "xy").none { it in line }
     }
 )
