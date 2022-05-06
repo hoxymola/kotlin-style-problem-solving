@@ -5,9 +5,9 @@ package adventOfCode
  */
 
 fun main() {
-    readLines("2020_01").map { it.toInt() }.also { list ->
-        list.forEach { num ->
-            list.firstOrNull { num + it == 2020 }?.let {
+    readLines("2020_01").map { it.toInt() }.also { line ->
+        line.forEach { num ->
+            line.firstOrNull { num + it == 2020 }?.let {
                 println(num * it)
                 return
             }
