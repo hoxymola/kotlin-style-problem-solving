@@ -6,11 +6,9 @@ package adventOfCode
 
 fun main() = println(
     readLines("2015_05").count { line ->
-        line.dropLast(2).filterIndexed { i, _ ->
-            line.indexOf(line.substring(i, i + 2), i + 2) != -1
-        }.isNotEmpty() &&
-            line.dropLast(2).filterIndexed { i, c ->
-                line.any { c == line[i + 2] }
-            }.isNotEmpty()
+        with(line) {
+            dropLast(2).filterIndexed { i, _ -> indexOf(substring(i, i + 2), i + 2) != -1 }.isNotEmpty()
+                && dropLast(2).filterIndexed { i, c -> any { c == get(i + 2) } }.isNotEmpty()
+        }
     }
 )
