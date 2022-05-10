@@ -7,7 +7,7 @@ import adventOfCode.model.Location
  */
 
 fun main() {
-    val santa = Location(mutableSetOf(0 to 0))
+    val santa = Location()
     readLines("2015_03").first().forEach { santa.move(it) }
     println(santa.visited.size)
 }
