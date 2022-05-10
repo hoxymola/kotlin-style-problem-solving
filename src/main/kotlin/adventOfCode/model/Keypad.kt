@@ -4,14 +4,6 @@ package adventOfCode.model
  * @author Jaeguk Cho
  */
 
-/*
-    1
-  2 3 4
-5 6 7 8 9
-  A B C
-    D
- */
-
 data class Keypad(
     var y: Int = 3,
     var x: Int = 1
