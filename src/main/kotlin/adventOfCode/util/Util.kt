@@ -1,4 +1,4 @@
-package adventOfCode
+package adventOfCode.util
 
 import java.io.File
 
