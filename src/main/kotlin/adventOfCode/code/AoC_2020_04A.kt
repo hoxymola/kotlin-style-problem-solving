@@ -1,4 +1,6 @@
-package adventOfCode
+package adventOfCode.code
+
+import adventOfCode.util.readLines
 
 /**
  * @author Jaeguk Cho
