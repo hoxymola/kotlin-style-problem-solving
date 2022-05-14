@@ -1,6 +1,7 @@
-package adventOfCode
+package adventOfCode.code
 
 import adventOfCode.model.Location
+import adventOfCode.util.readLines
 import kotlin.math.absoluteValue
 
 /**

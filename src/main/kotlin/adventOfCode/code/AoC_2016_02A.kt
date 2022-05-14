@@ -1,6 +1,7 @@
-package adventOfCode
+package adventOfCode.code
 
 import adventOfCode.model.Keypad
+import adventOfCode.util.readLines
 
 /**
  * @author Jaeguk Cho
