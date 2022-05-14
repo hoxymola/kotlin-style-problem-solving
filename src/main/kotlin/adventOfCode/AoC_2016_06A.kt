@@ -1,0 +1,10 @@
+package adventOfCode
+
+/**
+ * @author Jaeguk Cho
+ */
+
+fun main() = println(
+    readLines("2016_06").joinToString("").withIndex().groupBy { it.index % 8 }
+        .map { it.value.groupBy { it.value }.maxByOrNull { it.value.size }?.key }.joinToString("")
+)
