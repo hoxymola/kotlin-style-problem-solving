@@ -7,3 +7,5 @@ import java.io.File
  */
 
 fun readLines(path: String) = File("src/main/kotlin/adventOfCode/input/$path").readLines()
+
+fun <T> Collection<T>.modeOrNull() = groupBy { it }.maxByOrNull { it.value.size }?.key
