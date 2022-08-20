@@ -1,5 +1,3 @@
-package backjoon
-
 /**
  * @author Jaeguk Cho
  */
