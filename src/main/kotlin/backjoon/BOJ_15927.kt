@@ -3,12 +3,10 @@
  */
 
 fun main() {
-    fun String.isPalindrome(l: Int, r: Int): Boolean {
-        return when {
-            l >= r -> true
-            this[l] == this[r] -> isPalindrome(l + 1, r - 1)
-            else -> false
-        }
+    tailrec fun String.isPalindrome(l: Int, r: Int): Boolean = when {
+        l >= r -> true
+        this[l] == this[r] -> isPalindrome(l + 1, r - 1)
+        else -> false
     }
 
     println(with(readln()) {
