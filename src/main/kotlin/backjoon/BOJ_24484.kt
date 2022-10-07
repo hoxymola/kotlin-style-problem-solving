@@ -4,13 +4,15 @@
 
 fun main() {
     data class Node(val no: Int) {
-        var depth = -1
+        var depth = -1L
+        var order = 0L
         val connections = mutableListOf<Int>()
     }
 
     val (n, m, r) = readln().split(' ').map { it.toInt() }
     val graph = List(n) { Node(it) }
     val visited = MutableList(n) { false }
+    var order = 1L
 
     repeat(m) {
         readln().split(' ').map { it.toInt() - 1 }.also {
@@ -19,15 +21,16 @@ fun main() {
         }
     }
 
-    fun dfs(n: Int, depth: Int) {
+    fun dfs(n: Int, depth: Long) {
         if (visited[n]) return
         graph[n].apply {
             visited[no] = true
             this.depth = depth
+            this.order = order++
             connections.sorted().forEach { dfs(it, depth + 1) }
         }
     }
 
     dfs(r - 1, 0)
-    println(graph.joinToString("\n") { it.depth.toString() })
+    println(graph.sumOf { it.depth * it.order })
 }

@@ -24,7 +24,7 @@ fun main() {
         graph[n].apply {
             visited[no] = true
             this.depth = depth
-            connections.sorted().forEach { dfs(it, depth + 1) }
+            connections.sortedDescending().forEach { dfs(it, depth + 1) }
         }
     }
 
