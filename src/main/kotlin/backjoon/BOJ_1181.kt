@@ -1,9 +1,3 @@
-package backjoon
-
-/**
- * @author Jaeguk Cho
- */
-
 fun main() {
     val n = readln().toInt()
     val words = List(n) { readln() }
