@@ -1,8 +1,6 @@
-fun main() {
-    val sb = StringBuilder()
+fun main() = with(StringBuilder()) {
+    List(readln().toInt()) { readln().toInt() }
+        .sorted().forEach { appendLine(it) }
 
-    List(readln().toInt()) { readln().toInt() }.sorted()
-        .forEach { sb.append("$it\n") }
-
-    println(sb.toString())
+    println(toString())
 }

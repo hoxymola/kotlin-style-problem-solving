@@ -1,21 +1,17 @@
 import kotlin.math.roundToInt
 
-/**
- * @author Jaeguk Cho
- */
-
 fun main() {
     val n = readln().toInt()
-    val arr = List(n) { readln().toInt() }
+    val numbers = List(n) { readln().toInt() }.sorted()
+    val frequency = numbers.groupingBy { it }.eachCount()
+    val maxCount = frequency.maxOf { it.value }
+    val mode = frequency.filter { it.value == maxCount }.keys.sorted()
 
-    println((arr.sum().toDouble() / n).roundToInt())
-    println(arr.sorted()[n / 2])
-    val frequency = arr.groupingBy { it }.eachCount()
-    val maxValue = frequency.maxOf { it.value }
-    val maxFrequency = frequency.filter { it.value == maxValue }.keys.sorted()
+    println((numbers.sum().toDouble() / n).roundToInt())
+    println(numbers[n / 2])
     println(
-        if (maxFrequency.size == 1) maxFrequency[0]
-        else maxFrequency[1]
+        if (mode.size == 1) mode[0]
+        else mode[1]
     )
-    println(arr.maxOrNull()!! - arr.minOrNull()!!)
+    println(numbers.last() - numbers.first())
 }
