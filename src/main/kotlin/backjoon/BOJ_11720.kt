@@ -1,6 +1,6 @@
 fun main() {
     val n = readln().toInt()
-    val numbers = readln().map { it - '0' }
+    val nums = readln().map { it - '0' }
 
-    println(numbers.sum())
+    println(nums.sum())
 }

@@ -1,17 +1,20 @@
 import kotlin.math.sqrt
 
-fun main() {
-    val max = 1000
-    val isPrime = MutableList(max + 1) { it >= 2 }
-
+val max = 1000
+val isPrime = MutableList(max + 1) { it >= 2 }
+fun preprocess() {
     for (i in 2..sqrt(max.toDouble()).toInt()) {
         for (j in i * 2..max step i) {
             isPrime[j] = false
         }
     }
+}
+
+fun main() {
+    preprocess()
 
     val n = readln().toInt()
-    val numbers = readln().split(" ").map { it.toInt() }
+    val nums = readln().split(" ").map { it.toInt() }
 
-    println(numbers.count { isPrime[it] })
+    println(nums.count { isPrime[it] })
 }

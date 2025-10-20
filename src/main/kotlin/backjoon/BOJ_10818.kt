@@ -1,6 +1,6 @@
 fun main() {
     val n = readln().toInt()
-    val numbers = readln().split(" ").map { it.toInt() }
+    val nums = readln().split(" ").map { it.toInt() }
 
-    println("${numbers.minOrNull()} ${numbers.maxOrNull()}")
+    println("${nums.minOrNull()} ${nums.maxOrNull()}")
 }

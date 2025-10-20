@@ -1,7 +1,7 @@
 fun main() {
-    val numbers = List(9) { readln().toInt() }
-    val max = numbers.maxOrNull()
+    val nums = List(9) { readln().toInt() }
+    val max = nums.maxOrNull()
 
     println(max)
-    println(numbers.indexOfFirst { it == max } + 1)
+    println(nums.indexOfFirst { it == max } + 1)
 }
