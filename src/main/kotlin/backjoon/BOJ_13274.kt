@@ -1,48 +1,40 @@
-package backjoon
-
-/**
- * @author Jaeguk Cho
- */
+package backjoon13274
 
 fun main() {
     val (n, k) = readln().split(" ").map { it.toInt() }
-    val sequence = readln().split(" ").map { it.toLong() }.toMutableList()
-    val tempSequence = MutableList(n) { 0L }
+    val nums = readln().split(" ").map { it.toLong() }.sorted().toLongArray()
+    val tempList1 = LongArray(n)
+    val tempList2 = LongArray(n)
 
     repeat(k) {
         val (l, r, x) = readln().split(" ").map { it.toInt() }
+        var tempIndex1 = 0
+        var tempIndex2 = 0
 
-        var index1l = 0
-        var index1r = r
-        var index2 = l - 1
-        var tempIndex = 0
+        (0 until l - 1).forEach { tempList1[tempIndex1++] = nums[it] }
+        (r until n).forEach { tempList1[tempIndex1++] = nums[it] }
+        (l - 1 until r).forEach { tempList2[tempIndex2++] = nums[it] + x }
 
-        while (index1l < l - 1 && index2 < r) {
-            tempSequence[tempIndex++] = when {
-                sequence[index1l] < sequence[index2] + x -> sequence[index1l++]
-                else -> sequence[index2++] + x
+        var t1 = 0
+        var t2 = 0
+        var t0 = 0
+
+        while (t1 < tempIndex1 && t2 < tempIndex2) {
+            nums[t0++] = if (tempList1[t1] < tempList2[t2]) {
+                tempList1[t1++]
+            } else {
+                tempList2[t2++]
             }
         }
-        while (index1r < n && index2 < r) {
-            tempSequence[tempIndex++] = when {
-                sequence[index1r] < sequence[index2] + x -> sequence[index1r++]
-                else -> sequence[index2++] + x
-            }
-        }
-        while (index1l < l - 1) {
-            tempSequence[tempIndex++] = sequence[index1l++]
-        }
-        while (index1r < n) {
-            tempSequence[tempIndex++] = sequence[index1r++]
-        }
-        while (index2 < r) {
-            tempSequence[tempIndex++] = sequence[index2++] + x
+
+        while (t1 < tempIndex1) {
+            nums[t0++] = tempList1[t1++]
         }
 
-        for (i in 0 until n) {
-            sequence[i] = tempSequence[i]
+        while (t2 < tempIndex2) {
+            nums[t0++] = tempList2[t2++]
         }
     }
 
-    println(sequence.joinToString(" "))
+    println(nums.joinToString(" "))
 }

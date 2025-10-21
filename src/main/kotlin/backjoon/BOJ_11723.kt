@@ -1,5 +1,4 @@
-fun main() {
-    val sb = StringBuilder()
+fun main() = with(StringBuilder()) {
     var s = 0
 
     repeat(readln().toInt()) {
@@ -9,12 +8,12 @@ fun main() {
         s = when (op[0]) {
             "add" -> s or x
             "remove" -> s and x.inv()
-            "check" -> s.also { sb.appendLine(if (s and x > 0) 1 else 0) }
+            "check" -> s.also { appendLine(if (s and x > 0) 1 else 0) }
             "toggle" -> s xor x
             "all" -> 0.inv()
             else -> 0
         }
     }
 
-    println(sb.toString())
+    println(toString())
 }

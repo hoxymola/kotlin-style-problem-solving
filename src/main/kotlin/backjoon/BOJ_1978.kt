@@ -1,3 +1,5 @@
+package backjoon1978
+
 import kotlin.math.sqrt
 
 val max = 1000
