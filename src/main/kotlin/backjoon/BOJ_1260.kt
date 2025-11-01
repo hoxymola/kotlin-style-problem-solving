@@ -1,6 +1,6 @@
 package backjoon1260
 
-val graph = Array(1001) { BooleanArray(1001) }
+val graph = List(1001) { mutableListOf<Int>() }
 
 fun dfs(n: Int, v: Int) = with(StringBuilder()) {
     val stack = ArrayDeque<Int>()
@@ -13,10 +13,8 @@ fun dfs(n: Int, v: Int) = with(StringBuilder()) {
 
         append("$cur ")
         visited[cur] = true
-        (1..n).reversed().forEach {
-            if (graph[cur][it]) {
-                stack.addLast(it)
-            }
+        graph[cur].sortedDescending().forEach {
+            stack.addLast(it)
         }
     }
 
@@ -34,10 +32,8 @@ fun bfs(n: Int, v: Int) = with(StringBuilder()) {
 
         append("$cur ")
         visited[cur] = true
-        (1..n).forEach {
-            if (graph[cur][it]) {
-                queue.addLast(it)
-            }
+        graph[cur].sorted().forEach {
+            queue.addLast(it)
         }
     }
 
@@ -50,8 +46,8 @@ fun main() {
     repeat(m) {
         val (a, b) = readln().split(" ").map { it.toInt() }
 
-        graph[a][b] = true
-        graph[b][a] = true
+        graph[a] += b
+        graph[b] += a
     }
 
     dfs(n, v)

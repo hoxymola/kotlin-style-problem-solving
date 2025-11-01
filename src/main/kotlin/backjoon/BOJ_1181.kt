@@ -1,12 +1,9 @@
-fun main() {
-    val n = readln().toInt()
-    val words = List(n) { readln() }
+fun main() = with(StringBuilder()) {
+    val words = List(readln().toInt()) { readln() }
 
-    words.distinct().sortedWith { a, b ->
-        if (a.length != b.length) {
-            a.length - b.length
-        } else {
-            a.compareTo(b)
-        }
-    }.forEach { println(it) }
+    words.distinct()
+        .sortedWith(compareBy(String::length, { it }))
+        .forEach { appendLine(it) }
+
+    println(toString())
 }

@@ -1,19 +1,17 @@
+package backjoon11286
+
 import java.util.*
 import kotlin.math.abs
 
-/**
- * @author Jaeguk Cho
- */
-
 fun main() {
-    val pq = PriorityQueue<Int>() { x, y ->
-        if (abs(x) == abs(y)) x - y
-        else abs(x) - abs(y)
-    }
+    val pq = PriorityQueue<Int>(
+        compareBy({ abs(it) }, { it })
+    )
+
     repeat(readln().toInt()) {
-        when (val n = readln().toInt()) {
-            0 -> println(pq.poll() ?: 0)
-            else -> pq.add(n)
-        }
+        val x = readln().toInt()
+
+        if (x != 0) pq.add(x)
+        else println(pq.poll() ?: 0)
     }
 }
