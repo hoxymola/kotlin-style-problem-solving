@@ -1,9 +1,8 @@
-package backjoon2606
+package backjoon11724
 
 lateinit var graph: List<MutableList<Int>>
 lateinit var visited: BooleanArray
 val stack = ArrayDeque<Int>()
-var ans = -1
 
 fun dfs(s: Int) {
     visited[s] = true
@@ -11,7 +10,6 @@ fun dfs(s: Int) {
     while (stack.isNotEmpty()) {
         val cur = stack.removeLast()
 
-        ans++
         graph[cur].forEach {
             if (!visited[it]) {
                 visited[it] = true
@@ -22,18 +20,24 @@ fun dfs(s: Int) {
 }
 
 fun main() {
-    val n = readln().toInt()
+    val (n, m) = readln().split(" ").map { it.toInt() }
     graph = List(n + 1) { mutableListOf() }
     visited = BooleanArray(n + 1)
+    var ans = 0
 
-    repeat(readln().toInt()) {
+    repeat(m) {
         val (u, v) = readln().split(" ").map { it.toInt() }
 
         graph[u] += v
         graph[v] += u
     }
 
-    dfs(1)
+    (1..n).forEach {
+        if (!visited[it]) {
+            dfs(it)
+            ans++
+        }
+    }
 
     println(ans)
 }

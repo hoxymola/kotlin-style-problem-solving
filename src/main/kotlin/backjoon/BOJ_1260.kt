@@ -1,10 +1,12 @@
 package backjoon1260
 
-val graph = List(1001) { mutableListOf<Int>() }
+lateinit var graph: List<MutableList<Int>>
+lateinit var visited: BooleanArray
+val stack = ArrayDeque<Int>()
+val queue = ArrayDeque<Int>()
 
 fun dfs(n: Int, v: Int) = with(StringBuilder()) {
-    val stack = ArrayDeque<Int>()
-    val visited = BooleanArray(n + 1)
+    visited = BooleanArray(n + 1)
 
     stack.addLast(v)
     while (stack.isNotEmpty()) {
@@ -22,8 +24,7 @@ fun dfs(n: Int, v: Int) = with(StringBuilder()) {
 }
 
 fun bfs(n: Int, v: Int) = with(StringBuilder()) {
-    val queue = ArrayDeque<Int>()
-    val visited = BooleanArray(n + 1)
+    visited = BooleanArray(n + 1)
 
     queue.addLast(v)
     while (queue.isNotEmpty()) {
@@ -42,6 +43,7 @@ fun bfs(n: Int, v: Int) = with(StringBuilder()) {
 
 fun main() {
     val (n, m, v) = readln().split(" ").map { it.toInt() }
+    graph = List(n + 1) { mutableListOf() }
 
     repeat(m) {
         val (a, b) = readln().split(" ").map { it.toInt() }

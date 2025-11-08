@@ -1,7 +1,11 @@
 fun main() {
     while (true) {
-        val (a, b) = readLine()?.split(" ")?.map { it.toInt() } ?: return
+        try {
+            val (a, b) = readln().split(" ").map { it.toInt() }
 
-        println(a + b)
+            println(a + b)
+        } catch (_: Exception) {
+            return
+        }
     }
 }
