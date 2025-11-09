@@ -1,39 +1,21 @@
-package backjoon
-
-/**
- * @author Jaeguk Cho
- */
+package backjoon30804
 
 fun main() {
     val n = readln().toInt()
-    val thr = readln().split(" ").map { it.toInt() }
-    var answer = 1
-    var length = 1
-    var idx = 0
-    var entry = listOf(thr.first())
+    val fruits = readln().split(" ").map { it.toInt() }
+    val fruitCount = IntArray(10)
+    var ans = 0
 
-    for (i in 1 until n) {
-        if (thr[i - 1] == thr[i]) {
-            length++
+    var l = 0
+    var r = 0
+    while (l <= r && r < n) {
+        if (fruitCount[fruits[r]] == 0 && fruitCount.count { it > 0 } == 2) {
+            fruitCount[fruits[l++]]--
         } else {
-            if (entry.size == 1) {
-                length++
-                entry = listOf(thr[i - 1], thr[i])
-                idx = i
-            } else {
-                if (thr[i] in entry) {
-                    length++
-                    idx = i
-                } else {
-                    length = i - idx + 1
-                    entry = listOf(thr[i - 1], thr[i])
-                    idx = i
-                }
-            }
+            ans = maxOf(ans, r - l + 1)
+            fruitCount[fruits[r++]]++
         }
-
-        answer = answer.coerceAtLeast(length)
     }
 
-    println(answer)
+    println(ans)
 }
