@@ -1,7 +1,7 @@
 fun main() {
     val n = readln().toInt()
 
-    repeat(n) {
-        println("*".repeat(it + 1))
+    (1..n).forEach {
+        println("*".repeat(it))
     }
 }
