@@ -4,9 +4,7 @@ import java.util.*
 import kotlin.math.abs
 
 fun main() {
-    val pq = PriorityQueue<Int>(
-        compareBy({ abs(it) }, { it })
-    )
+    val pq = PriorityQueue<Int>(compareBy({ abs(it) }, { it }))
 
     repeat(readln().toInt()) {
         val x = readln().toInt()
