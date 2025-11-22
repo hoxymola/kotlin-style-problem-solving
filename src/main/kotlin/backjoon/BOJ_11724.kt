@@ -2,9 +2,10 @@ package backjoon11724
 
 lateinit var graph: List<MutableList<Int>>
 lateinit var visited: BooleanArray
-val stack = ArrayDeque<Int>()
 
 fun dfs(s: Int) {
+    val stack = ArrayDeque<Int>()
+
     visited[s] = true
     stack.addLast(s)
     while (stack.isNotEmpty()) {

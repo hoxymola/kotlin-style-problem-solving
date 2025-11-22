@@ -2,12 +2,13 @@ package backjoon21736
 
 lateinit var campus: List<String>
 lateinit var visited: Array<BooleanArray>
-val stack = ArrayDeque<Pair<Int, Int>>()
 val dy = listOf(-1, 0, 1, 0)
 val dx = listOf(0, 1, 0, -1)
 var ans = 0
 
 fun dfs(n: Int, m: Int, sy: Int, sx: Int) {
+    val stack = ArrayDeque<Pair<Int, Int>>()
+    
     visited[sy][sx] = true
     stack.addLast(sy to sx)
     while (stack.isNotEmpty()) {

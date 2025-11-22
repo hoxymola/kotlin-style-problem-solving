@@ -2,7 +2,7 @@ package backjoon11403
 
 fun main() {
     val n = readln().toInt()
-    val graph = Array(n) { readln().split(" ").map { it.toInt() }.toIntArray() }
+    val graph = List(n) { readln().split(" ").map { it.toInt() }.toMutableList() }
 
     for (k in 0 until n) {
         for (i in 0 until n) {

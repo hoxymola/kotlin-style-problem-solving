@@ -1,11 +1,12 @@
 package backjoon1697
 
-val queue = ArrayDeque<Pair<Int, Int>>()
 val visited = BooleanArray(100001)
 val mul = listOf(1, 1, 2)
 val add = listOf(-1, 1, 0)
 
 fun bfs(k: Int, sp: Int) {
+    val queue = ArrayDeque<Pair<Int, Int>>()
+    
     visited[sp] = true
     queue.addLast(sp to 0)
     while (queue.isNotEmpty()) {

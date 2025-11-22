@@ -1,12 +1,13 @@
 package backjoon1012
 
 lateinit var field: Array<BooleanArray>
-val stack = ArrayDeque<Pair<Int, Int>>()
 val dy = listOf(-1, 0, 1, 0)
 val dx = listOf(0, -1, 0, 1)
 var ans = 0
 
 fun dfs(n: Int, m: Int, sy: Int, sx: Int) {
+    val stack = ArrayDeque<Pair<Int, Int>>()
+    
     field[sy][sx] = false
     stack.addLast(sy to sx)
     while (stack.isNotEmpty()) {
