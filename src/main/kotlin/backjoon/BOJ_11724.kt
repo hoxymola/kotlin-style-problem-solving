@@ -3,15 +3,15 @@ package backjoon11724
 lateinit var graph: List<MutableList<Int>>
 lateinit var visited: BooleanArray
 
-fun dfs(s: Int) {
+fun dfs(start: Int) {
     val stack = ArrayDeque<Int>()
 
-    visited[s] = true
-    stack.addLast(s)
+    visited[start] = true
+    stack.addLast(start)
     while (stack.isNotEmpty()) {
-        val cur = stack.removeLast()
+        val current = stack.removeLast()
 
-        graph[cur].forEach {
+        graph[current].forEach {
             if (!visited[it]) {
                 visited[it] = true
                 stack.addLast(it)
